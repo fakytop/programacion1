@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School of Rock</title>
+    <link rel="stylesheet" href="css/estiloPagina.css">
+</head>
+<body style="background-image: url(img/webImg/wallpaper.png);">
+    <div id="contenedor">
+        <div id="cabezal" class="clearfix">
+            <img id="logo" src="img/webImg/logoWeb.png" alt="logo">
+            <ul id="navPrincipal">
+                <li id="btnParaIniciarSesion">
+                    <a>Iniciar Sesión</a>
+                </li>
+                <li id="btnParaRegistrarse">
+                    <a>Registrarse</a>
+                </li>
+                <li id="btnParaCerrarSesion">
+                    <a>Salir</a>
+                </li>
+            </ul>
+            <div id="aux">
+                <a id="btnListaDeAlumnos">Lista de Alumnos | </a>
+            <a id="btnCrearNuevoEjercicio">Nuevo Ejercicio | </a>
+                <a id="btnCalificar">Calificar | </a>
+                <a id="btnVerTareas">Tareas | </a>
+                <a id="btnVerEjerciciosResueltos">Ver Ejercicios Resueltos |
+                <a id="btnEstadisticas">Estadísticas</a> 
+            </div><!-- FIN AUX -->
+        </div><!-- FIN CABEZAL -->
+        <div id="contenido">
+            <!-- INICIO: DIVS DE REGISTRO E INICIO DE SESION -->
+            <div id="divRegistrarse">
+                <h3>Registrarse</h3>
+                <table>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td><input type="text" id="txtNombreRegistrarse" placeholder="Ingrese su nombre"></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre de Usuario:</td>
+                        <td><input type="text" id="txtNombreUsuarioRegistrarse" placeholder="Usuario"></td>
+                    </tr>
+                    <tr>
+                        <td>Contraseña:</td>
+                        <td><input type="password" id="txtPasswordRegistrarse" placeholder="Ingrese contraseña"></td>
+                    </tr>
+                    <tr>
+                        <td>Tipo de Usuario:</td>
+                        <td>
+                            <select id="slctTipoDeUsuario">
+                                <option value="" selected>Seleccione...</option>
+                                <option value="soyProf">Profesor</option>
+                                <option value="soyAlumno">Alumno</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <div id="divSelectorTipoDeUsuario"></div>
+                <input type="button" id="btnGuardarUsuarioRegistrado" value="Registrar">
+                <div id="mensajeDivError"></div>
+            </div>
+            
+            <div id="divIniciarSesion">
+                <h3>Iniciar Sesión</h3>
+                <table>
+                    <tr>
+                        <td>Usuario:</td>
+                        <td><input type="text" id="txtIniciarSesionUsuario" placeholder="Nombre de usuario..."></td>
+                    </tr>
+                    <tr>
+                        <td>Contraseña:</td>
+                        <td><input type="password" id="txtIniciarSesionPassword" placeholder="Contraseña..."></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="btnIniciarSesion" value="Iniciar Sesión"></td>
+                    </tr>
+                </table>
+                <div id="divMsjErrorAlIniciarSesion"></div>
+            </div>
+            <!-- FIN: DIVS DE REGISTRO E INICIO DE SESION -->
+            <div id="menuPrincipalProfesor">
+                <div id="divListaDeAlumnosPorProfesor">
+                    <div id="tablaAsignacion"></div>
+                    <div id="msjCambioNivel"></div>
+                </div>
+                
+                <!-- PLANTEO DE EJERCICIOS DEL PROFESOR -->
+                <div id="divCrearNuevoEjercicio">
+                    <label for="tituloDelNuevoEjercicio">Ingresar Titulo: </label>
+                    <br>
+                    <input type="text" id="tituloDelNuevoEjercicio" placeholder="Ingresar Titulo">
+                    <br>
+                    <textarea id="descripcionNuevoEjercicio" placeholder="Ingresar descripcion....."></textarea>
+                    <br>
+                    <label for="slctNivelDelEjercicio">Seleccionar Nivel: </label>
+                    <br>
+                    <select id="slctNivelDelEjercicio">
+                        <option value="" selected>Seleccione...</option>
+                        <option value="Inicial">Inicial</option>
+                        <option value="Intermedio">Intermedio</option>
+                        <option value="Avanzado">Avanzado</option>
+                    </select>
+                    <br>
+                    <label for="imgNuevaTarea">Cargar Imagen</label>
+                    <br>
+                    <input type="file" id="imgNuevaTarea">
+                    <br><br>
+                    <input type="button" id="btnNuevaTarea" value="Cargar Tarea">
+                    <div id="mensajeCrearTarea"></div>
+                </div>
+                <div id="divComentar">
+                    <div id="tablaEjerciciosParaCalificar"></div>
+                </div>
+                <div id="mostrarPantallaEjercicioParaCalificar">
+                    <div id="divVerEjercicioParaCalificar"></div>
+                    <br>
+                    <textarea id="txtComentarioProfesor"></textarea>
+                    <br>
+                    <input type="button" id="btnComentarTarea" value="Comentar">
+                    <div id="msjErrorCalificar"></div>
+                </div>
+                <div id="divEstadisticasProfesor">
+                    <div id="alumnosMasTareasEntregadas"></div>
+                    <div id="totalTareasEntregadas"></div>
+                    <select id="slctInfoAlumnos"></select>
+                    <div id="divMsjInfoAlumno"></div>
+                </div>                
+            </div>
+
+
+            <div id="menuPrincipalAlumno">
+                <div id="divTareasAsignadasAlAlumno">
+                    <div id="divBuscadorDeTareas">
+                        <label for="txtBuscarTareaCargadaPorProfesor">Buscar: </label>
+                        <input type="text" id="txtBuscarTareaCargadaPorProfesor" placeholder="Buscar tarea...">
+                        <input type="button" id="btnBuscarTareaParaRealizar" value="Buscar">    
+                    </div>    
+                    <br>
+                    <div id="tablaTareasAsignadasPorAlumno"></div>
+                </div>
+                <div id="divRealizarNuevoEjercicio">
+                    <div id="funcionGenerarNuevoEjercicio"></div>
+                    <input type="file" id="btnAudiosDeAlumno">
+                    <input type="button" id="btnEntregarTareaRealizada" value="Entregar">
+                    <p id="parrafoMsj"></p>
+                </div>
+                <div id="divVerEjerciciosResueltos"></div>
+                <div id="divEstadisticasAlumno"></div>
+        </div>
+       
+       
+        </div><!-- FIN CONTENIDO -->
+          <div id="pie">
+            <a href="https://www.ort.edu.uy">Diego Gagliano - Gonzalo Pérez</a>
+          </div><!-- FIN PIE -->
+        </div><!-- FIN CONTENEDOR -->    
+
+        <script type="text/javascript" src="js/baseDatos.js"></script>
+        <script type="text/javascript" src="js/funcionesParametros.js"></script>
+        <script type="text/javascript" src="js/menuFunciones.js"></script>
+        <script type="text/javascript" src="js/miCodigoPrincipal.js"></script>
+</body>
+</html>
